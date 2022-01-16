@@ -1,56 +1,74 @@
-<x-guest-layout>
-    <x-auth-card>
-        <x-slot name="logo">
-            <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-            </a>
-        </x-slot>
 
-        <!-- Session Status -->
-        <x-auth-session-status class="mb-4" :status="session('status')" />
-
-        <!-- Validation Errors -->
-        <x-auth-validation-errors class="mb-4" :errors="$errors" />
-
-        <form method="POST" action="{{ route('login') }}">
-            @csrf
-
-            <!-- Email Address -->
-            <div>
-                <x-label for="email" :value="__('Email')" />
-
-                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
+<x-layout>
+    <div class="account-pages"></div>
+    <div class="clearfix"></div>
+    <div class="wrapper-page">
+        <div class="m-t-40 card-box">
+            <div class="text-center">
+                <a href="{{ route('home')}}" class="logo">Labo</a>
+                <h5 class="text-muted m-t-0 font-600">Médical</h5>
             </div>
-
-            <!-- Password -->
-            <div class="mt-4">
-                <x-label for="password" :value="__('Password')" />
-
-                <x-input id="password" class="block mt-1 w-full"
-                                type="password"
-                                name="password"
-                                required autocomplete="current-password" />
+            <div class="text-center">
+                <h4 class="text-uppercase font-bold m-b-0">Espace Admin</h4>
             </div>
+            <div class="panel-body">
+                <form class="form-horizontal m-t-20" method="POST" action="{{ route('login') }}">
+                    @csrf
 
-            <!-- Remember Me -->
-            <div class="block mt-4">
-                <label for="remember_me" class="inline-flex items-center">
-                    <input id="remember_me" type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" name="remember">
-                    <span class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
-                </label>
+                    <div class="form-group ">
+                        <div class="col-xs-12">
+                            <input class="form-control @error('email') arsley-error @enderror"  type="email" name="email" :value="old('email')" required autofocus placeholder="Email">
+                            @error('email')
+                            <ul class="parsley-errors-list filled" id="parsley-id-10">
+                                <li class="parsley-required">{{ $message }}</li>
+                            </ul>
+                            @enderror
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-xs-12">
+                            <input class="form-control @error('password') arsley-error @enderror" type="password" name="password" required autocomplete="current-password" placeholder="Password">
+                            @error('password')
+                            <ul class="parsley-errors-list filled" id="parsley-id-10">
+                                <li class="parsley-required">{{ $message }}</li>
+                            </ul>
+                            @enderror
+                        </div>
+                    </div>
+
+                    <div class="form-group ">
+                        <div class="col-xs-12">
+                            <div class="checkbox checkbox-custom">
+                                <input id="checkbox-signup" type="checkbox" name="remember">
+                                <label for="checkbox-signup">
+                                    Rester Connecté
+                                </label>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="form-group text-center m-t-30">
+                        <div class="col-xs-12">
+                            <button class="btn btn-custom btn-bordred btn-block waves-effect waves-light" type="submit">Se connecter</button>
+                        </div>
+                    </div>
+
+                    {{-- <div class="form-group m-t-30 m-b-0">
+                        <div class="col-sm-12">
+                            <a href="page-recoverpw.html" class="text-muted"><i class="fa fa-lock m-r-5"></i> Forgot your password?</a>
+                        </div>
+                    </div> --}}
+                </form>
+
             </div>
+        </div>
+        <!-- end card-box-->
 
-            <div class="flex items-center justify-end mt-4">
-                @if (Route::has('password.request'))
-                    <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
-                        {{ __('Forgot your password?') }}
-                    </a>
-                @endif
-
-                <x-button class="ml-3">
-                    {{ __('Log in') }}
-                </x-button>
-            </div>
-        </form>
-    </x-auth-card>
-</x-guest-layout>
+        
+        
+    </div>
+</x-layout>
+        
+        

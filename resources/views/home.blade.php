@@ -1,166 +1,68 @@
-<!DOCTYPE html>
-<html>
-    
-<head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="A fully featured admin theme which can be used to build CRM, CMS, etc.">
-        <meta name="author" content="Coderthemes">
+<x-layout>
+    <div class="account-pages"></div>
+    <div class="clearfix"></div>
+    <div class="wrapper-page"  >
+        <div class="m-t-80 card-box" >
+            <div class="text-center">
+                
+                <h4><a href="./" style="color:black">Header</a></h4>
+                <h4 class="text-uppercase font-bold m-b-0"><a href="./" style="color:black">Titre</a></h4>
+                
+                <h5 style="color:black; font-weight:600">indication</h5>
+                
+                <h5 style="color:black">                        
+                    mobile
+                </h5>
+                <h5 style="color:black"><i class="fa fa-map-marker"></i>adresse</h5>
+                <h4 style="color:black">
+                    <i class="fa fa-phone"></i> telephone 
+                </h4>
+                email
+                <h4 style="color:black">                        
+                    <i class="fa fa-envelope"></i> email
+                </h4>
 
-        <link rel="shortcut icon" href="assets/images/favicon.ico">
-
-        <title>Labo</title>
-
-        <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-        <link href="assets/css/core.css" rel="stylesheet" type="text/css" />
-        <link href="assets/css/components.css" rel="stylesheet" type="text/css" />
-        <link href="assets/css/icons.css" rel="stylesheet" type="text/css" />
-        <link href="assets/css/pages.css" rel="stylesheet" type="text/css" />
-        <link href="assets/css/menu.css" rel="stylesheet" type="text/css" />
-        <link href="assets/css/responsive.css" rel="stylesheet" type="text/css" />
-
-        <script src="assets/js/modernizr.min.js"></script>
-
-
-    </head>
-
-
-    <body>
-
-        <!-- Navigation Bar-->
-        <header id="topnav">
-            <div class="topbar-main">
-                <div class="container">
-
-                    <!-- LOGO -->
-                    <div class="topbar-left">
-                        <a href="index.html" class="logo">Laboratoire</span></a>
+                <hr>
+                <h4 class="text-uppercase font-bold m-b-0">Consultation des résultats</h4>
+            </div>
+            <div class="panel-body">
+                <form autocomplete="off" method="post" action="dashboard.php" role="form" class="text-center">
+                    <div class="user-thumb">
+                        <img src="assets/images/user.png" class="img-responsive img-circle img-thumbnail" alt="patient">
                     </div>
-                    <!-- End Logo container-->
-
-
-                    <div class="menu-extras">
-
-                        <ul class="nav navbar-nav navbar-right pull-right">
-
-                            <li class="dropdown user-box">
-                                <a href="#" class="dropdown-toggle waves-effect waves-light profile " data-toggle="dropdown" aria-expanded="true">
-                                    <img src="assets/images/users/avatar-1.jpg" alt="user-img" class="img-circle user-img">
-                                    <div class="user-status away"><i class="zmdi zmdi-dot-circle"></i></div>
-                                </a>
-
-                                <ul class="dropdown-menu">
-                                    <li><a href="#"><i class="ti-user m-r-5"></i>Mon profil</a></li>
-                                    <li><a href="#"><i class="ti-power-off m-r-5"></i> Déconnexion</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                        <div class="menu-item">
-                            <!-- Mobile menu toggle-->
-                            <a class="navbar-toggle">
-                                <div class="lines">
-                                    <span></span>
-                                    <span></span>
-                                    <span></span>
-                                </div>
-                            </a>
-                            <!-- End mobile menu toggle-->
+                    <div class="form-group">
+                        <p class="text-muted m-t-10">
+                            Veuillez tapez le code de vos résultats
+                        </p>
+                        <div class="input-group m-t-30">
+                            <input type="text" class="form-control" name="code" placeholder="Code des résultats" required="">
+                            <span class="input-group-btn">
+                                <button type="submit" name="submit" class="btn btn-success w-sm waves-effect waves-light">
+                                    Valider
+                                </button>
+                            </span>
                         </div>
                     </div>
-
-                </div>
-            </div>
-
-            <div class="navbar-custom">
-                <div class="container">
-                    <div id="navigation">
-                        <!-- Navigation Menu-->
-                        <ul class="navigation-menu">
-                            <li>
-                                <a href="index.html"><i class="zmdi zmdi-view-dashboard"></i> <span> Tableau de bord </span> </a>
-                            </li>
-                            
-
-                            <li>
-                                <a href="#"><i class="zmdi zmdi-collection-plus"></i><span>Importer </span> </a>
-                            </li>
-
-                            <li>
-                                <a href="#"><i class="zmdi zmdi-collection-text"></i><span>Paramètres </span> </a>
-                            </li>
-
-                        </ul>
-                        <!-- End navigation menu  -->
-                    </div>
-                </div>
-            </div>
-        </header>
-        <!-- End Navigation Bar-->
-
-
-        <div class="wrapper">
-            <div class="container">
-
-                <!-- Page-Title -->
-                <div class="row">
-                    <div class="col-sm-12">
-                        <div class="btn-group pull-right m-t-15">
-                            <button type="button" class="btn btn-custom dropdown-toggle waves-effect waves-light" data-toggle="dropdown" aria-expanded="false">Paramètres <span class="m-l-5"><i class="fa fa-cog"></i></span></button>
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a href="#">Action</a></li>
-                                <li><a href="#">Another action</a></li>
-                                <li><a href="#">Something else here</a></li>
-                                <li class="divider"></li>
-                                <li><a href="#">Separated link</a></li>
-                            </ul>
-                        </div>
-                        <h4 class="page-title">Tableau de bord</h4>
-                    </div>
-                </div>
-
-
-                <!-- Footer -->
-                <footer class="footer text-right">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-xs-6">
-                                {{date('Y')}} © Labo.
+                    
+                            <div class="alert alert-danger alert-dismissible text-center">
+                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                <strong>Aucun résultat trouvé !</strong> 
                             </div>
-                            <div class="col-xs-6">
-                                <ul class="pull-right list-inline m-b-0">
-                                   
-                                </ul>
+                    
+                            <div class="alert alert-warning alert-dismissible text-center">
+                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                <strong>Résultat expiré !</strong> 
                             </div>
-                        </div>
-                    </div>
-                </footer>
-                <!-- End Footer -->
+                    
+                </form>
+
 
             </div>
-            <!-- end container -->
-
-
+            <div class="row">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1596.957550355338!2d5.760489458151401!3d36.82055429498609!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12f2607a07587e49%3A0x357dd4a82e0d152d!2sLabo%20Medical%20Dr.%20Bourouied!5e0!3m2!1sfr!2sdz!4v1625679537497!5m2!1sfr!2sdz" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
         </div>
-
-
-
-        <!-- jQuery  -->
-        <script src="assets/js/jquery.min.js"></script>
-        <script src="assets/js/bootstrap.min.js"></script>
-        <script src="assets/js/detect.js"></script>
-        <script src="assets/js/fastclick.js"></script>
-        <script src="assets/js/jquery.slimscroll.js"></script>
-        <script src="assets/js/jquery.blockUI.js"></script>
-        <script src="assets/js/waves.js"></script>
-        <script src="assets/js/wow.min.js"></script>
-        <script src="assets/js/jquery.nicescroll.js"></script>
-        <script src="assets/js/jquery.scrollTo.min.js"></script>
-
-
-        <!-- App js -->
-        <script src="assets/js/jquery.core.js"></script>
-        <script src="assets/js/jquery.app.js"></script>
-
-    </body>
-
-</html>
+        
+        
+    </div>
+</x-layout>

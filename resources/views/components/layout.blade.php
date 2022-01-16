@@ -10,7 +10,7 @@
         <link rel="shortcut icon" href="{{asset('assets/images/favicon.ico')}}">
 
         <!-- App title -->
-        <title>Laboratoire Dr. BOUROUIED</title>
+        <title>Laboratoire Dr. </title>
 
         <!-- App CSS -->
         <link href="{{asset('assets/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css" />
@@ -26,6 +26,12 @@
 
     </head>
     <body>
+
+        @auth
+
+            @include('_header')
+
+        @endauth
        
         {{ $slot }}
             
