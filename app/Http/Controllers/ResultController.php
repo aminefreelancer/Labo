@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Labo;
 use App\Models\Result;
 use Illuminate\Http\Request;
 
@@ -15,6 +16,8 @@ class ResultController extends Controller
     public function index()
     {
         //
+        $labo = Labo::findOrFail(1);
+        return view('home', ['labo' => $labo]);
     }
 
     /**
@@ -37,6 +40,12 @@ class ResultController extends Controller
     {
         //
     }
+    
+
+    public function get(Request $request)
+    {
+        return redirect()->route('result', ['code' => $request->code]); 
+    }
 
     /**
      * Display the specified resource.
@@ -46,7 +55,8 @@ class ResultController extends Controller
      */
     public function show(Result $result)
     {
-        //
+        $result = Result::find($result);
+        return view('result', ['result' => $result]);
     }
 
     /**

@@ -10,7 +10,7 @@
         <link rel="shortcut icon" href="{{asset('assets/images/favicon.ico')}}">
 
         <!-- App title -->
-        <title>Laboratoire Dr. </title>
+        <title>Laboratoire Pr. L. BADEREDDINE</title>
 
         <!-- App CSS -->
         <link href="{{asset('assets/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css" />
@@ -27,13 +27,17 @@
     </head>
     <body>
 
-        @auth
+        @if(Route::current()->getName() != 'home')
+            @auth 
 
-            @include('_header')
+                @include('_header')
 
-        @endauth
+            @endauth
+        @endif
        
         {{ $slot }}
+
+        
             
 
         <script>

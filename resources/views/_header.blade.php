@@ -4,7 +4,7 @@
 
             <!-- LOGO -->
             <div class="topbar-left">
-                <a href="index.html" class="logo">Laboratoire</span></a>
+                <a href="{{route('home')}}" class="logo">Laboratoire Pr. L. BADEREDDINE</a>
             </div>
             <!-- End Logo container-->
 
@@ -15,12 +15,12 @@
 
                     <li class="dropdown user-box">
                         <a href="#" class="dropdown-toggle waves-effect waves-light profile " data-toggle="dropdown" aria-expanded="true">
-                            <img src="assets/images/users/avatar-1.jpg" alt="user-img" class="img-circle user-img">
-                            <div class="user-status away"><i class="zmdi zmdi-dot-circle"></i></div>
+                            <img src="{{asset('assets/images/user.png')}}" alt="user-img" class="img-circle user-img">
+                            
                         </a>
 
                         <ul class="dropdown-menu">
-                            <li><a href="#"><i class="ti-user m-r-5"></i>Mon profil</a></li>
+                            <li><a href="{{route('about')}}"><i class="ti-user m-r-5"></i>Mon profil</a></li>
                             <li><a href="#"><i class="ti-power-off m-r-5"></i> Déconnexion</a></li>
                         </ul>
                     </li>
@@ -47,16 +47,16 @@
                 <!-- Navigation Menu-->
                 <ul class="navigation-menu">
                     <li>
-                        <a href="index.html"><i class="zmdi zmdi-view-dashboard"></i> <span> Tableau de bord </span> </a>
+                        <a href="{{route('dashboard')}}"><i class="zmdi zmdi-view-dashboard"></i> <span> Tableau de bord </span> </a>
                     </li>
                     
 
                     <li>
-                        <a href="#"><i class="zmdi zmdi-collection-plus"></i><span>Importer </span> </a>
+                        <a href="{{route('import')}}"><i class="zmdi zmdi-collection-plus"></i><span>Importer </span> </a>
                     </li>
 
                     <li>
-                        <a href="#"><i class="zmdi zmdi-collection-text"></i><span>Paramètres </span> </a>
+                        <a href="{{route('about')}}"><i class="zmdi zmdi-collection-text"></i><span>Paramètres </span> </a>
                     </li>
 
                 </ul>
