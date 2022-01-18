@@ -5,11 +5,11 @@
     <div class="wrapper-page">
         <div class="m-t-40 card-box">
             <div class="text-center">
-                <a href="{{ route('home')}}" class="logo">Labo</a>
-                <h5 class="text-muted m-t-0 font-600">Médical</h5>
+                <a href="{{ route('home')}}" class="logo">Espace Admin</a>
+                <h5 class="text-muted m-t-0 font-600">LABORATOIRE D’ANALYSES MÉDICALES</h5>
             </div>
             <div class="text-center">
-                <h4 class="text-uppercase font-bold m-b-0">Espace Admin</h4>
+                <h4 class="text-uppercase font-bold m-b-0">Pr. L. BADEREDDINE</h4>
             </div>
             <div class="panel-body">
                 <form class="form-horizontal m-t-20" method="POST" action="{{ route('login') }}">

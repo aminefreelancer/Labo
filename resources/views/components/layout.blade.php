@@ -20,6 +20,7 @@
         <link href="{{asset('assets/css/pages.css')}}" rel="stylesheet" type="text/css" />
         <link href="{{asset('assets/css/menu.css')}}" rel="stylesheet" type="text/css" />
         <link href="{{asset('assets/css/responsive.css')}}" rel="stylesheet" type="text/css" />
+        <link href="{{asset('css/dropzone.css')}}" rel="stylesheet" type="text/css" />
 
  
         <script src="{{asset('assets/js/modernizr.min.js')}}"></script>
@@ -60,6 +61,11 @@
         <script src="{{asset('assets/js/jquery.core.js')}}"></script>
         <script src="{{asset('assets/js/jquery.app.js')}}"></script>
 
+
+        <script src="{{ asset('js/dropify.min.js') }}"></script>
+        <script src="{{asset('js/dropzone.js')}}"></script>
+
+        @yield('javascript')
 
     </body>
 </html>

@@ -1,10 +1,7 @@
 <x-layout>
-
     <div class="wrapper">
         <div class="container">
-    
             <div class="row">
-                
                 <div class="card-box m-t-20">
                     <div class="row">
                         <div class="col-lg-6" >
@@ -129,16 +126,8 @@
                         
                     </div>
                 </div>
-                
-            </div>
-            
+            </div>            
             @include('_footer')
-            
-
         </div>
-        <!-- end container -->
-
-
     </div>
-
 </x-layout>
