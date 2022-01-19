@@ -47,9 +47,14 @@ class LaboController extends Controller
         //
         if($request->hasFile('file')){
             $file = $request->file('file');
+            $extension = $file->getClientOriginalExtension();
+            if(strcmp($extension, 'pdf'))
+                return 'Error ! Invalid file extension !';
             $completeFileName = $file->getClientOriginalName();
+            $existResult =  Result::where('code', $completeFileName)->get();
+            if($existResult)
+                return 'File already exists !';
             $path = $file->storeAs('public/pdf', $completeFileName);
-            
             $result = new Result();
             $result->code = $completeFileName;
             $today = date('Y-m-d');
