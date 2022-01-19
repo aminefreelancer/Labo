@@ -21,7 +21,10 @@
 
                         <ul class="dropdown-menu">
                             <li><a href="{{route('about')}}"><i class="ti-user m-r-5"></i>Mon profil</a></li>
-                            <li><a href="#"><i class="ti-power-off m-r-5"></i> Déconnexion</a></li>
+                            <li><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="ti-power-off m-r-5"></i> Déconnexion</a></li>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
                         </ul>
                     </li>
                 </ul>

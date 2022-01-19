@@ -28,7 +28,7 @@
     </head>
     <body>
 
-        @if(Route::current()->getName() != 'home')
+        @if(Route::current()->getName() != 'home' and Route::current()->getName() != 'result' )
             @auth 
 
                 @include('_header')

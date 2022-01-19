@@ -65,7 +65,7 @@ class LaboController extends Controller
     public function show()
     {
         //
-        $results = Result::all();
+        $results = Result::paginate(10);
         return view('dashboard', ['results' => $results]);
     }
 

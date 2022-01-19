@@ -53,10 +53,27 @@ class ResultController extends Controller
      * @param  \App\Models\Result  $result
      * @return \Illuminate\Http\Response
      */
-    public function show(Result $result)
+    public function show(Request $request)
     {
-        $result = Result::find($result);
-        return view('result', ['result' => $result]);
+        $code = $request->code.'.pdf';
+        $result = Result::where('code', $code)->first();
+        $message = '';
+        if($result) 
+            if(strtotime($result->expired) < strtotime('today')){
+                $message = 'Résultat '.$request->code.' expiré !';
+                $session = 'warning';
+            } else {
+                $result->views++;
+                $result->save();
+                return view('result', ['result' => $result]);
+            }
+                
+        else {
+            $message = 'Aucun résultat trouvé !';
+            $session = 'fail';
+        } 
+        return redirect()->route('home')->with($session, $message);
+            
     }
 
     /**

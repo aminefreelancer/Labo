@@ -82,8 +82,6 @@
                         <table class="table table-striped table-bordered">
                             <thead>
                                 <tr>
-                                    
-                                    <th>#</th>
                                     <th>Code</th>
                                     <th>Nombre de vue</th>
                                     <th>Expire le</th>
@@ -94,9 +92,7 @@
                             <tbody>
                                 @foreach ($results as $result)
                                     <tr>
-                                        <td>#</td>
-                                        
-                                        <td>{{$result->code }}</td>
+                                        <td>{{ (explode(".pdf", $result->code))[0] }}</td>
                                         <td>{{$result->views }}</td>
                                         <td>
                                             @if(strtotime($result->expired) < strtotime('today')) 
@@ -185,6 +181,9 @@
                                 @endforeach
                             </tbody>
                         </table>
+                        <div class="text-right">
+                            {{ $results->links() }}
+                        </div>
                     @else
                         <p class="text-center">Aucun résultat trouvé ! <a href="{{route('import')}}"> Importer </a></p>
                     @endif
