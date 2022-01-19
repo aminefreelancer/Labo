@@ -22,7 +22,7 @@ class CreateLabosTable extends Migration
             $table->string('phone', 20)->nullable();
             $table->string('mobile', 20)->nullable();
             $table->string('email', 100)->nullable();
-            $table->text('maps')->nullable();
+            $table->string('expiry', 20);
             $table->timestamps();
         });
     }

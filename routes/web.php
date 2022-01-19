@@ -21,17 +21,22 @@ Route::get('/', [ResultController::class, 'index'])->name('home');
 Route::get('/result/{code}', [ResultController::class, 'show'])->name('result');
 Route::post('/result', [ResultController::class, 'get'])->name('getResult');
 
-Route::get('/dashboard', [LaboController::class, 'show' ])->middleware(['auth'])->name('dashboard');
-Route::put('/dashboard', [LaboController::class, 'updateExpired'])->name('updateExpired');
+Route::middleware(['auth'])->group(function () {
+    Route::get('/dashboard', [LaboController::class, 'show' ])->name('dashboard');
+    Route::put('/dashboard', [LaboController::class, 'updateExpired'])->name('updateExpired');
 
-Route::get('/about', [LaboController::class, 'index'])->name('about');
-Route::put('/about', [LaboController::class, 'update'])->name('updateLabo');
+    Route::get('/about', [LaboController::class, 'index'])->name('about');
+    Route::put('/about', [LaboController::class, 'update'])->name('updateLabo');
+    Route::put('/about-account', [LaboController::class, 'updateAccount'])->name('updateAccount');
 
-Route::get('/import', [LaboController::class, 'create'])->name('import');
-Route::post('/import', [LaboController::class, 'store'])->name('upload');
+    Route::get('/import', [LaboController::class, 'create'])->name('import');
+    Route::post('/import', [LaboController::class, 'store'])->name('upload');
 
-Route::delete('/destroy', [LaboController::class, 'destroy'])->name('destroy');
-Route::delete('/destroy-all', [LaboController::class, 'destroyAll'])->name('destroyAll');
-Route::delete('/destroy-expired', [LaboController::class, 'destroyExpired'])->name('destroyExpired');
+    Route::delete('/destroy', [LaboController::class, 'destroy'])->name('destroy');
+    Route::delete('/destroy-all', [LaboController::class, 'destroyAll'])->name('destroyAll');
+    Route::delete('/destroy-expired', [LaboController::class, 'destroyExpired'])->name('destroyExpired');
+});
+
+
 
 require __DIR__.'/auth.php';

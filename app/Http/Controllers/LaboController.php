@@ -3,9 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Labo;
+use App\Models\User;
 use App\Models\Result;
 use Illuminate\Http\Request;
+use App\Rules\MatchOldPassword;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
+
 
 class LaboController extends Controller
 {
@@ -49,7 +53,8 @@ class LaboController extends Controller
             $result = new Result();
             $result->code = $completeFileName;
             $today = date('Y-m-d');
-            $result->expired = date('Y-m-d', strtotime("+3 months", strtotime($today)));
+            $labo = Labo::findOrFail(1);
+            $result->expired = date('Y-m-d', strtotime($labo->expiry, strtotime($today)));
             $result->save();
             return $result;
         }
@@ -95,13 +100,33 @@ class LaboController extends Controller
             'indication' => ['max:255'],
             'phone' => ['max:20'],
             'mobile' => ['max:20'],
-            'email' => ['max:100']
+            'email' => ['max:100'],
+            'expiry' => ['max:20'],
         ]);
 
         $labo = Labo::findOrFail(1);
         $labo->update($attributes);
 
         return redirect()->route('about')->with('success', 'Mise à jour effectuée avec succès !');
+    }
+
+    public function updateAccount(Request $request)
+    {
+        $attributes = $request->validate([
+            'email_user' => ['required', 'string', 'email', 'max:191'],
+            'current_password' => ['required', new MatchOldPassword],
+            'new_password' => ['sometimes', 'nullable', 'min:6'],
+            'new_confirm_password' => ['same:new_password'], 
+        ]);
+
+        $user = User::findOrFail(1);
+        $user->email = $request->email_user;
+        if(!is_null($request->new_password)) {
+            $user->password = Hash::make($request->new_password);
+        }
+        $user->update();
+
+        return redirect()->route('about')->with('success-account', 'Mise à jour effectuée avec succès !');
     }
 
     public function updateExpired(Request $request)

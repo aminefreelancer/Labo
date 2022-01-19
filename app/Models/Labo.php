@@ -9,5 +9,5 @@ class Labo extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['header', 'title', 'maps', 'phone', 'address', 'indication', 'mobile', 'email'];
+    protected $fillable = ['header', 'title', 'expiry', 'phone', 'address', 'indication', 'mobile', 'email'];
 }

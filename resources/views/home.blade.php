@@ -20,23 +20,21 @@
                         {{$labo->indication}} 
                     </h5>
                 @endif
-                @if($labo->mobile)
-                    <h5 style="color:black">                        
-                        {{$labo->mobile}}
-                    </h5>
-                @endif
                 <h5 style="color:black">
                     <i class="fa fa-map-marker"></i> {{$labo->address}}
                 </h5>
                 @if($labo->phone)
                     <h4 style="color:black">
                         <i class="fa fa-phone"></i> {{$labo->phone}} 
+                        @if($labo->mobile)
+                         / {{$labo->mobile}}
+                        @endif
                     </h4>
                 @endif
                 @if($labo->email)
-                    <h4 style="color:black">                        
+                    <h5 style="color:black">                        
                         <i class="fa fa-envelope"></i> {{$labo->email}}
-                    </h4>
+                    </h5>
                 @endif
                 <hr>
                 <h4 class="text-uppercase font-bold m-b-0">Consultation des résultats</h4>
