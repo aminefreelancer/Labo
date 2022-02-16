@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use App\Rules\MatchOldPassword;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Response;
 
 
 class LaboController extends Controller
@@ -49,11 +50,12 @@ class LaboController extends Controller
             $file = $request->file('file');
             $extension = $file->getClientOriginalExtension();
             if(strcmp($extension, 'pdf'))
-                return 'Error ! Invalid file extension !';
+                return response()->json('Fichier doit etre .pdf!', 500);
             $completeFileName = $file->getClientOriginalName();
             $existResult =  Result::where('code', $completeFileName)->get();
-            if($existResult)
-                return 'File already exists !';
+            if(count($existResult))
+                return response()->json('Fichier existe déjà !', 500);
+                
             $path = $file->storeAs('public/pdf', $completeFileName);
             $result = new Result();
             $result->code = $completeFileName;
@@ -75,7 +77,7 @@ class LaboController extends Controller
     public function show()
     {
         //
-        $results = Result::paginate(10);
+        $results = Result::latest()->paginate(10);
         return view('dashboard', ['results' => $results]);
     }
 

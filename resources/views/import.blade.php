@@ -55,6 +55,9 @@
                         };
                         i++;
                     });
+                },
+                error: function(file, message) {
+                    $(file.previewElement).addClass("dz-error").find('.dz-error-message').text("test");
                 }
 
             });
